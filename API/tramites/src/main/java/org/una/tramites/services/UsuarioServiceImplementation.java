@@ -79,6 +79,11 @@ public class UsuarioServiceImplementation implements IUsuarioService {
     public Optional<Usuario> login(Usuario usuario) {
         return Optional.ofNullable(usuarioRepository.findByCedulaAndPasswordEncriptado(usuario.getCedula(), usuario.getPasswordEncriptado()));
     }
+    
+     @Override
+    public Optional<Usuario> findByCedula(String cedula) {
+        return usuarioRepository.findByCedula(cedula);
+    }
  
 }
 

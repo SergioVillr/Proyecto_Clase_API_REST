@@ -35,7 +35,7 @@ public class PermisoController {
     private IPermisoService permisoService;
 
     @GetMapping("/{id}")
-    @ApiOperation(value = "Obtiene una lista de todos los Permisos", response = PermisoDTO.class, responseContainer = "List", tags = "Permisos")
+    @ApiOperation(value = "Obtiene una lista de todos los Permisos ", response = PermisoDTO.class, responseContainer = "List", tags = "Permisos")
     public ResponseEntity<?> findById(@PathVariable(value = "id") Long id) {
         try {
             Optional<Permiso> permisoFound = permisoService.findById(id);

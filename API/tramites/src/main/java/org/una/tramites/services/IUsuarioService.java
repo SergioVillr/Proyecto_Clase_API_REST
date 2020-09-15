@@ -28,6 +28,8 @@ public interface IUsuarioService {
 
     public Optional<Usuario> login(Usuario usuario); 
     
+    public Optional<Usuario> findByCedula(String cedula);
+    
     
 }
 
