@@ -1,16 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package components;
+package org.una.tramites.components;
+
 
 import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.ApplicationArguments;
 import org.una.tramites.entities.Permiso;
 import org.una.tramites.entities.PermisoOtorgado;
 import org.una.tramites.entities.Usuario;
@@ -18,11 +14,7 @@ import org.una.tramites.services.IPermisoOtorgadoService;
 import org.una.tramites.services.IPermisoService;
 import org.una.tramites.services.IUsuarioService;
 
-/**
- *
- * @author expz
- */
-@Component
+ @Component
 public class DataLoader implements ApplicationRunner {
 
     @Value("${app.admin-user}")
@@ -77,4 +69,3 @@ public class DataLoader implements ApplicationRunner {
 
     }
 }
-
