@@ -14,6 +14,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.una.tramites.dto.AuthenticationRequest;
 import org.una.tramites.entities.Usuario;
 import org.una.tramites.repositories.IUsuarioRepository;
 
@@ -125,6 +126,11 @@ public class UsuarioServiceImplementation implements IUsuarioService, UserDetail
             return null;
         }
 
+    }
+
+    @Override
+    public String login(AuthenticationRequest authenticationRequest) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
  
 }
