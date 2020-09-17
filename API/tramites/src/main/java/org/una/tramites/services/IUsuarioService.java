@@ -2,6 +2,7 @@ package org.una.tramites.services;
 
 import java.util.List;
 import java.util.Optional;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.una.tramites.entities.Usuario;
 
 /**
@@ -30,6 +31,7 @@ public interface IUsuarioService {
     
     public Optional<Usuario> findByCedula(String cedula);
     
+    public UserDetails loadUserByUsername(String username);
     
 }
 
