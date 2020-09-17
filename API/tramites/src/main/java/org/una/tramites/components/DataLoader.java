@@ -14,6 +14,7 @@ import org.una.tramites.services.IPermisoOtorgadoService;
 import org.una.tramites.services.IPermisoService;
 import org.una.tramites.services.IUsuarioService;
 
+
  @Component
 public class DataLoader implements ApplicationRunner {
 
@@ -52,7 +53,7 @@ public class DataLoader implements ApplicationRunner {
             }
             
             Usuario usuario = new Usuario();
-            usuario.setNombreCompleto("Usuario Admin");
+            usuario.setNombreCompleto("Sergio Villanueva");
             usuario.setCedula(cedula);
             usuario.setPasswordEncriptado(password);
             usuario = usuarioService.create(usuario);
