@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.una.tramites.entities;
 
 import java.io.Serializable;
@@ -15,8 +10,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
@@ -32,43 +25,43 @@ import lombok.ToString;
 
 /**
  *
- * @author Heilen
+ * @author Sergio
  */
 @Entity
-@Table(name = "Trámites_Tipos")
+@Table(name = "Cliente")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class TramiteTipo implements Serializable {
+public class Cliente implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
-
-    @Column(length = 100, name = "Descripcion")
-    private String descripcion;
-
-    @Column(name = "Estado")
-    private boolean estado;
-
-    @ManyToOne
-    @JoinColumn(name = "Departamentos_Id")
-    private Departamento departamento;
-
-    @Column(name = "Fecha_Registro", updatable = false)
+    private Long id;
+    @Column(name = "nombre_completo", length = 100)
+    private String nombreCompleto;
+    @Column(length = 25, unique = true)
+    private String cedula;
+    @Column(length = 10)
+    private String telefono;
+    @Column(length = 100)
+    private String direccion;
+    @Column(name = "fecha_registro", updatable = false)
+    @Temporal(TemporalType.DATE)
     @Setter(AccessLevel.NONE)
-    @Temporal(TemporalType.TIMESTAMP)
     private Date fechaRegistro;
-
-    @Column(name = "Fecha_Modificacion")
+    @Column(name = "fecha_modificacion")
     @Setter(AccessLevel.NONE)
     @Temporal(TemporalType.DATE)
     private Date fechaModificacion;
-    
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tramiteTipoId")
-    private List<Variacion> variaciones = new ArrayList<>();
+    @Column
+    private boolean estado;
+    @Column(length = 100, name = "password_encriptado")
+    private String passwordEncriptado;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente")
+    private List<TramitesRegistrados> tramitesRegistrados = new ArrayList<>();
+     
     private static final long serialVersionUID = 1L;
 
     @PrePersist
@@ -82,5 +75,4 @@ public class TramiteTipo implements Serializable {
     public void preUpdate() {
         fechaModificacion = new Date();
     }
-
 }
