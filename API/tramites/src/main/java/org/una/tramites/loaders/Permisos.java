@@ -20,8 +20,18 @@ public enum Permisos {
     ColsultarTramite("TRA5"),
     ColsultarTodosTramites("TRA6"),
     DiseñarTramitesVariacionesRequisitos("TRD1"),
-    ColsultarReportesTransacciones("TRU1");
-    //TODO: Completar esta lista
+    ColsultarReportesTransacciones("TRU1"),
+    Consultarreportedealertasdefavoritismo("TRU2"),
+    Registrartramitepropio("TAG1"),	
+    Consultartramitepropio("TAG2"),
+    Consultarreportedetramitesporusuarios("REP1"),	
+    Consultarreportedetramitesporfechas("REP2"),
+    Consultarreportedetramitesportipos("REP3"),	
+    Consultarreportedetramitesporestados("REP4"),	
+    Consultarreportedetramitespordepartamentos("REP5"),	
+    Consultarreportedetrámitesporcliente("REP6");	
+
+    
     private String codigo;
     
     Permisos(String codigo){
